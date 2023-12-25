@@ -10,10 +10,11 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - /mnt/curso.ctic.uni.edu.pe/addons_oti:/mnt/extra-addons-oti
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
 networks:
   default:
-    external:
-      name: ${NETWORK_NAME}
+    name: ${NETWORK_NAME}
+    external: true
 volumes:
   odoo-web-data:
